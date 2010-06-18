@@ -1,0 +1,23 @@
+//
+// Prefix header for all source files of the 'Deadbeef' target in the 'Deadbeef' project
+//
+
+#import <Availability.h>
+#import <TargetConditionals.h>
+
+#define DEBUG_PRINT 0
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#endif
+
+#if DEBUG_PRINT
+#define debug_log(format, ...) printf("%s: " format "\n", __FUNCTION__, ##__VA_ARGS__)
+#else
+#define debug_log(format, ...) 0
+#endif
